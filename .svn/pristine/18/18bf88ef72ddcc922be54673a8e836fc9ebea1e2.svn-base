@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student Record</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Update Student Record</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Student ID</label>
+                <input type="text" class="form-control" name="student_id" value="{{ student[0] }}" required readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" value="{{ student[1] }}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Branch</label>
+                <input type="text" class="form-control" name="branch" value="{{ student[2] }}" required>
+            </div>
+            <button type="submit" class="btn btn-success">Update</button>
+            
+        </form>
+    </div>
+</body>
+</html>

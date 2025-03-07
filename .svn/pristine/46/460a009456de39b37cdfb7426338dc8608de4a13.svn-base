@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Borrow Record</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Update Borrow Record</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Borrow_ID</label>
+                <input type="text" class="form-control" name="Borrow_ID" value="{{ borrow[0] }}" required readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control" name="Title" value="{{ borrow[1] }}" required readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Student ID</label>
+                <input type="text" class="form-control" name="student_name" value="{{ borrow[2] }}" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Faculty ID</label>
+                <input type="text" class="form-control" name="faculty_name" value="{{ borrow[3] }}" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Borrow Date</label>
+                <input type="text" class="form-control" name="borrow_date" value="{{ borrow[4] }}" required readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Renew Date</label>
+                <input type="date" class="form-control" name="renew_date" value="{{ borrow[5] }}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Return Date</label>
+                <input type="date" class="form-control" name="return_date" value="{{ borrow[6] }}">
+            </div>
+            <button type="submit" class="btn btn-success">Update</button>
+            <a href="{{ url_for('borrow_list') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

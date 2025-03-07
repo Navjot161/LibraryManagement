@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Library Management</title>
+    <style>
+        body {
+            background-image: url('./library-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            display: flex;
+        }
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(135deg, #1d3557, #457b9d);
+            padding-top: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .sidebar h4 {
+            text-align: center;
+            color: #f8f9fa;
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            padding: 12px 20px;
+            display: block;
+            color: #f8f9fa;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, padding-left 0.3s;
+        }
+        .sidebar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            padding-left: 25px;
+        }
+        .content {
+            margin-left: 300px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            max-width: 85%;
+            color: #212529;
+            flex-grow: 1;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .custom-table thead {
+            background-color: #457b9d;
+            color: white;
+            text-align: center;
+        }
+    
+        .custom-table th, .custom-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        .custom-table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+    
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    
+        .custom-table th {
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+    
+        .custom-table td {
+            font-size: 14px;
+        }
+    </style>
+    
+    <title>Borrow List</title>
+</head>
+<body>
+    <div class="sidebar">
+        <h4>Library Management</h4>
+        <a href="/">🏠 Home</a>
+        <a href="/add_student">🎓 Add Student</a>
+        <a href="/add_book">📖 Add Book</a>
+        <a href="/add_faculty">👨‍🏫 Add Faculty</a>
+        <a href="/book">📚 List of Books</a>
+        <a href="/students">👩‍🎓 List of Students</a>
+        <a href="/faculty">👨‍🏫 List of Faculty</a>
+        <a href="/borrow_book">📄 Borrowed Books</a>
+        <a href="/borrow_list">📄 Borrow List</a>
+        <a href="/logout"><i class="fa fa-sign-out"></i>  Log Out</a>
+    </div>
+
+    <div class="content">
+        <table class="table table-bordered custom-table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Student</th>
+                    <th scope="col">Faculty</th>
+                    <th scope="col">Borrow Date</th>
+                    <th scope="col">Renew Date</th>
+                    <th scope="col">Return Date</th>
+                    <th scope="col">Admin Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in borrowedbooks %}
+                <tr>
+                    <td>{{ book[0] }}</td>
+                    <td>{{ book[1] }}</td>
+                    <td>{{ book[2] }}</td>
+                    <td>{{ book[3] }}</td>
+                    <td>{{ book[4] }}</td>
+                    <td>{{ book[5] }}</td>
+                    <td>{{ book[6] }}</td>
+                    <td>{{ book[7] }}</td>
+                    <td>
+                        <a href="{{ url_for('update_borrow', Borrow_ID=book[0]) }}" class="btn btn-secondary">
+                            <button type="button" class="btn btn-success">Update</button>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    
+    
+</body>
+</html>
