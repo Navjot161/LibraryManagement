@@ -139,13 +139,6 @@
                         <td class="text-center">
                             <a href="{{ url_for('borrow_book') }}">
                                 <button type="button" class="btn btn-issue">📖 Issue</button>
-                        <td id="but" >
-                            <!-- <a href="{{ url_for('borrow_book') }}">
-                                <button type="button" class="btn btn-issue">📖 Issue</button>
-                            </a> -->
-                            <a href="{{ url_for('update_book', Book_ID=book[0])}}">
-                                <button type="button" class="btn btn-update">✏️ Update</button>
-                            </a>
                         </td>
                     </tr>
                     {% endfor %}
